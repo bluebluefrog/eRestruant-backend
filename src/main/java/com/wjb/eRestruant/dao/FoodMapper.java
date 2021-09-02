@@ -1,7 +1,9 @@
 package com.wjb.eRestruant.dao;
 
 import com.wjb.eRestruant.entity.Food;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface FoodMapper {
     int deleteByPrimaryKey(Integer foodId);
 

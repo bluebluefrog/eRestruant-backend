@@ -1,5 +1,7 @@
 package com.wjb.eRestruant.entity;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Booking {
@@ -17,6 +19,7 @@ public class Booking {
 
     private Integer numberOfPeople;
 
+    @DateTimeFormat(pattern = "YYYY-MM-DD HH:MM")
     private Date bookingDateTime;
 
     private Integer bookingStatus;

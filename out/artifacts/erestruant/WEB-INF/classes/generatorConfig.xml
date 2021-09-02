@@ -6,7 +6,7 @@
 <generatorConfiguration>
     <!--    windows下路径, D:\downloads\xxx.jar-->
     <!--mysql 驱动-->
-    <classPathEntry location="/Users/handsomewarren/.m2/repository/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar"/>
+    <classPathEntry location="C:\Users\user\.m2\repository\mysql\mysql-connector-java\8.0.16\mysql-connector-java-8.0.16.jar"/>
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
 
@@ -21,7 +21,7 @@
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
                         connectionURL="jdbc:mysql://127.0.0.1:3306/erestruant?characterEncoding=utf-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"
                         userId="root"
-                        password="abc123456">
+                        password="123456">
         </jdbcConnection>
 
 

@@ -36,21 +36,6 @@
     <!--    排除静态资源-->
     <mvc:default-servlet-handler/>
 
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/ftl"/>
-        <property name="freemarkerSettings">
-            <props>
-                <!--渲染时所用的字符集编码-->
-                <prop key="defaultEncoding">UTF-8</prop>
-            </props>
-        </property>
-    </bean>
-
-    <bean id="ViewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="contentType" value="text/html;charset=utf-8"/>
-        <property name="suffix" value=".ftl"/>
-    </bean>
-
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/erestruant?useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai&amp;allowPublicKeyRetrieval=true"/>

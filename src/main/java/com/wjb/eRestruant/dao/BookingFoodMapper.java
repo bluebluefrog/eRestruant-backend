@@ -1,7 +1,10 @@
 package com.wjb.eRestruant.dao;
 
 import com.wjb.eRestruant.entity.BookingFood;
+import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+@Repository
 public interface BookingFoodMapper {
     int deleteByPrimaryKey(Integer bookingFoodId);
 

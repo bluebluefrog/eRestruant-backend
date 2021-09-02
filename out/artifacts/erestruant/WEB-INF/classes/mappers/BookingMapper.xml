@@ -17,7 +17,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    booking_id, booking_no, user_id, promotion_id, customer_name, customer_mobile, number_of_people,
+    booking_id, booking_no, user_id, promotion_id, customer_name, customer_mobile, number_of_people, 
     booking_date_time, booking_status, total_price, pay_time, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -32,12 +32,12 @@
   </delete>
   <insert id="insert" parameterType="com.wjb.eRestruant.entity.Booking">
     insert into booking (booking_id, booking_no, user_id, 
-      promotion_id, customer_name, customer_mobile,
+      promotion_id, customer_name, customer_mobile, 
       number_of_people, booking_date_time, booking_status, 
       total_price, pay_time, create_time, 
       update_time)
     values (#{bookingId,jdbcType=INTEGER}, #{bookingNo,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
-      #{promotionId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerMobile,jdbcType=VARCHAR},
+      #{promotionId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerMobile,jdbcType=VARCHAR}, 
       #{numberOfPeople,jdbcType=INTEGER}, #{bookingDateTime,jdbcType=TIMESTAMP}, #{bookingStatus,jdbcType=INTEGER}, 
       #{totalPrice,jdbcType=INTEGER}, #{payTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})

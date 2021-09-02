@@ -1,7 +1,9 @@
 package com.wjb.eRestruant.dao;
 
 import com.wjb.eRestruant.entity.Promotion;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PromotionMapper {
     int deleteByPrimaryKey(Integer promotionId);
 

@@ -1,7 +1,9 @@
 package com.wjb.eRestruant.dao;
 
 import com.wjb.eRestruant.entity.Booking;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface BookingMapper {
     int deleteByPrimaryKey(Integer bookingId);
 

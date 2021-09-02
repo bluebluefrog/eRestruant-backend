@@ -7,7 +7,7 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="promotion_id" jdbcType="INTEGER" property="promotionId" />
     <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
-    <result column="custome_mobile" jdbcType="VARCHAR" property="customeMobile" />
+    <result column="customer_mobile" jdbcType="VARCHAR" property="customerMobile" />
     <result column="number_of_people" jdbcType="INTEGER" property="numberOfPeople" />
     <result column="booking_date_time" jdbcType="TIMESTAMP" property="bookingDateTime" />
     <result column="booking_status" jdbcType="INTEGER" property="bookingStatus" />
@@ -17,7 +17,7 @@
     <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    booking_id, booking_no, user_id, promotion_id, customer_name, custome_mobile, number_of_people, 
+    booking_id, booking_no, user_id, promotion_id, customer_name, customer_mobile, number_of_people, 
     booking_date_time, booking_status, total_price, pay_time, create_time, update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -32,12 +32,12 @@
   </delete>
   <insert id="insert" parameterType="com.wjb.eRestruant.entity.Booking">
     insert into booking (booking_id, booking_no, user_id, 
-      promotion_id, customer_name, custome_mobile, 
+      promotion_id, customer_name, customer_mobile, 
       number_of_people, booking_date_time, booking_status, 
       total_price, pay_time, create_time, 
       update_time)
     values (#{bookingId,jdbcType=INTEGER}, #{bookingNo,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
-      #{promotionId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customeMobile,jdbcType=VARCHAR}, 
+      #{promotionId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerMobile,jdbcType=VARCHAR}, 
       #{numberOfPeople,jdbcType=INTEGER}, #{bookingDateTime,jdbcType=TIMESTAMP}, #{bookingStatus,jdbcType=INTEGER}, 
       #{totalPrice,jdbcType=INTEGER}, #{payTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP})
@@ -60,8 +60,8 @@
       <if test="customerName != null">
         customer_name,
       </if>
-      <if test="customeMobile != null">
-        custome_mobile,
+      <if test="customerMobile != null">
+        customer_mobile,
       </if>
       <if test="numberOfPeople != null">
         number_of_people,
@@ -101,8 +101,8 @@
       <if test="customerName != null">
         #{customerName,jdbcType=VARCHAR},
       </if>
-      <if test="customeMobile != null">
-        #{customeMobile,jdbcType=VARCHAR},
+      <if test="customerMobile != null">
+        #{customerMobile,jdbcType=VARCHAR},
       </if>
       <if test="numberOfPeople != null">
         #{numberOfPeople,jdbcType=INTEGER},
@@ -142,8 +142,8 @@
       <if test="customerName != null">
         customer_name = #{customerName,jdbcType=VARCHAR},
       </if>
-      <if test="customeMobile != null">
-        custome_mobile = #{customeMobile,jdbcType=VARCHAR},
+      <if test="customerMobile != null">
+        customer_mobile = #{customerMobile,jdbcType=VARCHAR},
       </if>
       <if test="numberOfPeople != null">
         number_of_people = #{numberOfPeople,jdbcType=INTEGER},
@@ -175,7 +175,7 @@
       user_id = #{userId,jdbcType=INTEGER},
       promotion_id = #{promotionId,jdbcType=INTEGER},
       customer_name = #{customerName,jdbcType=VARCHAR},
-      custome_mobile = #{customeMobile,jdbcType=VARCHAR},
+      customer_mobile = #{customerMobile,jdbcType=VARCHAR},
       number_of_people = #{numberOfPeople,jdbcType=INTEGER},
       booking_date_time = #{bookingDateTime,jdbcType=TIMESTAMP},
       booking_status = #{bookingStatus,jdbcType=INTEGER},
