@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjb.eRestruant.dao.BookingFoodMapper">
+  <resultMap id="BaseResultMap" type="com.wjb.eRestruant.entity.BookingFood">
+    <id column="booking_food_id" jdbcType="INTEGER" property="bookingFoodId" />
+    <result column="booking_no" jdbcType="VARCHAR" property="bookingNo" />
+    <result column="food_id" jdbcType="INTEGER" property="foodId" />
+    <result column="food_name" jdbcType="VARCHAR" property="foodName" />
+    <result column="food_img" jdbcType="VARCHAR" property="foodImg" />
+    <result column="unit_price" jdbcType="INTEGER" property="unitPrice" />
+    <result column="quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="total_price" jdbcType="INTEGER" property="totalPrice" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    booking_food_id, booking_no, food_id, food_name, food_img, unit_price, quantity, 
+    total_price, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from booking_food
+    where booking_food_id = #{bookingFoodId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from booking_food
+    where booking_food_id = #{bookingFoodId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wjb.eRestruant.entity.BookingFood">
+    insert into booking_food (booking_food_id, booking_no, food_id, 
+      food_name, food_img, unit_price, 
+      quantity, total_price, create_time, 
+      update_time)
+    values (#{bookingFoodId,jdbcType=INTEGER}, #{bookingNo,jdbcType=VARCHAR}, #{foodId,jdbcType=INTEGER}, 
+      #{foodName,jdbcType=VARCHAR}, #{foodImg,jdbcType=VARCHAR}, #{unitPrice,jdbcType=INTEGER}, 
+      #{quantity,jdbcType=INTEGER}, #{totalPrice,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjb.eRestruant.entity.BookingFood">
+    insert into booking_food
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bookingFoodId != null">
+        booking_food_id,
+      </if>
+      <if test="bookingNo != null">
+        booking_no,
+      </if>
+      <if test="foodId != null">
+        food_id,
+      </if>
+      <if test="foodName != null">
+        food_name,
+      </if>
+      <if test="foodImg != null">
+        food_img,
+      </if>
+      <if test="unitPrice != null">
+        unit_price,
+      </if>
+      <if test="quantity != null">
+        quantity,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bookingFoodId != null">
+        #{bookingFoodId,jdbcType=INTEGER},
+      </if>
+      <if test="bookingNo != null">
+        #{bookingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="foodId != null">
+        #{foodId,jdbcType=INTEGER},
+      </if>
+      <if test="foodName != null">
+        #{foodName,jdbcType=VARCHAR},
+      </if>
+      <if test="foodImg != null">
+        #{foodImg,jdbcType=VARCHAR},
+      </if>
+      <if test="unitPrice != null">
+        #{unitPrice,jdbcType=INTEGER},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjb.eRestruant.entity.BookingFood">
+    update booking_food
+    <set>
+      <if test="bookingNo != null">
+        booking_no = #{bookingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="foodId != null">
+        food_id = #{foodId,jdbcType=INTEGER},
+      </if>
+      <if test="foodName != null">
+        food_name = #{foodName,jdbcType=VARCHAR},
+      </if>
+      <if test="foodImg != null">
+        food_img = #{foodImg,jdbcType=VARCHAR},
+      </if>
+      <if test="unitPrice != null">
+        unit_price = #{unitPrice,jdbcType=INTEGER},
+      </if>
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where booking_food_id = #{bookingFoodId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjb.eRestruant.entity.BookingFood">
+    update booking_food
+    set booking_no = #{bookingNo,jdbcType=VARCHAR},
+      food_id = #{foodId,jdbcType=INTEGER},
+      food_name = #{foodName,jdbcType=VARCHAR},
+      food_img = #{foodImg,jdbcType=VARCHAR},
+      unit_price = #{unitPrice,jdbcType=INTEGER},
+      quantity = #{quantity,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where booking_food_id = #{bookingFoodId,jdbcType=INTEGER}
+  </update>
+</mapper>

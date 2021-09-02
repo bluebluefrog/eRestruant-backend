@@ -1,4 +1,4 @@
-CREATE TABLE `user`  (
+CREATE TABLE `euser`  (
   `user_id` bigint(20) NOT NULL AUTO_INCREMENT ,
   `username` varchar(32) NOT NULL ,
   `password` varchar(64) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE `booking` (
   `user_id` int(64) NOT NULL,
   `promotion_id` int(64) DEFAULT NULL,
   `customer_name` varchar(32) NOT NULL,
-  `custome_mobile` varchar(32) NOT NULL,
+  `customer_mobile` varchar(32) NOT NULL,
   `number_of_people` int(64) DEFAULT NULL,
   `booking_date_time` datetime DEFAULT NULL,
   `booking_status` int(10) NOT NULL DEFAULT '10' COMMENT '订单状态: 0用户已取消，10未付款（初始状态），20已付款，30已发货，40交易完成',

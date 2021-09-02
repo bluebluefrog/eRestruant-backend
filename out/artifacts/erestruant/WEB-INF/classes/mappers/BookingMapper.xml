@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wjb.eRestruant.dao.BookingMapper">
+  <resultMap id="BaseResultMap" type="com.wjb.eRestruant.entity.Booking">
+    <id column="booking_id" jdbcType="INTEGER" property="bookingId" />
+    <result column="booking_no" jdbcType="VARCHAR" property="bookingNo" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="promotion_id" jdbcType="INTEGER" property="promotionId" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="customer_mobile" jdbcType="VARCHAR" property="customerMobile" />
+    <result column="number_of_people" jdbcType="INTEGER" property="numberOfPeople" />
+    <result column="booking_date_time" jdbcType="TIMESTAMP" property="bookingDateTime" />
+    <result column="booking_status" jdbcType="INTEGER" property="bookingStatus" />
+    <result column="total_price" jdbcType="INTEGER" property="totalPrice" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    booking_id, booking_no, user_id, promotion_id, customer_name, customer_mobile, number_of_people,
+    booking_date_time, booking_status, total_price, pay_time, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from booking
+    where booking_id = #{bookingId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from booking
+    where booking_id = #{bookingId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.wjb.eRestruant.entity.Booking">
+    insert into booking (booking_id, booking_no, user_id, 
+      promotion_id, customer_name, customer_mobile,
+      number_of_people, booking_date_time, booking_status, 
+      total_price, pay_time, create_time, 
+      update_time)
+    values (#{bookingId,jdbcType=INTEGER}, #{bookingNo,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{promotionId,jdbcType=INTEGER}, #{customerName,jdbcType=VARCHAR}, #{customerMobile,jdbcType=VARCHAR},
+      #{numberOfPeople,jdbcType=INTEGER}, #{bookingDateTime,jdbcType=TIMESTAMP}, #{bookingStatus,jdbcType=INTEGER}, 
+      #{totalPrice,jdbcType=INTEGER}, #{payTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.wjb.eRestruant.entity.Booking">
+    insert into booking
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bookingId != null">
+        booking_id,
+      </if>
+      <if test="bookingNo != null">
+        booking_no,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="promotionId != null">
+        promotion_id,
+      </if>
+      <if test="customerName != null">
+        customer_name,
+      </if>
+      <if test="customerMobile != null">
+        customer_mobile,
+      </if>
+      <if test="numberOfPeople != null">
+        number_of_people,
+      </if>
+      <if test="bookingDateTime != null">
+        booking_date_time,
+      </if>
+      <if test="bookingStatus != null">
+        booking_status,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bookingId != null">
+        #{bookingId,jdbcType=INTEGER},
+      </if>
+      <if test="bookingNo != null">
+        #{bookingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="promotionId != null">
+        #{promotionId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerMobile != null">
+        #{customerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="numberOfPeople != null">
+        #{numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="bookingDateTime != null">
+        #{bookingDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bookingStatus != null">
+        #{bookingStatus,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.wjb.eRestruant.entity.Booking">
+    update booking
+    <set>
+      <if test="bookingNo != null">
+        booking_no = #{bookingNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="promotionId != null">
+        promotion_id = #{promotionId,jdbcType=INTEGER},
+      </if>
+      <if test="customerName != null">
+        customer_name = #{customerName,jdbcType=VARCHAR},
+      </if>
+      <if test="customerMobile != null">
+        customer_mobile = #{customerMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="numberOfPeople != null">
+        number_of_people = #{numberOfPeople,jdbcType=INTEGER},
+      </if>
+      <if test="bookingDateTime != null">
+        booking_date_time = #{bookingDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bookingStatus != null">
+        booking_status = #{bookingStatus,jdbcType=INTEGER},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=INTEGER},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where booking_id = #{bookingId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.wjb.eRestruant.entity.Booking">
+    update booking
+    set booking_no = #{bookingNo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      promotion_id = #{promotionId,jdbcType=INTEGER},
+      customer_name = #{customerName,jdbcType=VARCHAR},
+      customer_mobile = #{customerMobile,jdbcType=VARCHAR},
+      number_of_people = #{numberOfPeople,jdbcType=INTEGER},
+      booking_date_time = #{bookingDateTime,jdbcType=TIMESTAMP},
+      booking_status = #{bookingStatus,jdbcType=INTEGER},
+      total_price = #{totalPrice,jdbcType=INTEGER},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where booking_id = #{bookingId,jdbcType=INTEGER}
+  </update>
+</mapper>

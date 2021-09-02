@@ -9,5 +9,8 @@
         <module name="eRestruant" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eRestruant" target="7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
